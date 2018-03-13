@@ -1,12 +1,12 @@
 const Router = require("express").Router;
 const router = new Router();
-const Images = require("./model");
+const Words = require("./model");
 
 
-router.get("/image", (req, res) => {
-  const image = Images.findAll()
-    .then(image => {
-      res.json(image);
+router.get("/word", (req, res) => {
+  const word = Words.findAll()
+    .then(word => {
+      res.json(word);
     })
     .catch(err => {
       console.log(err);
@@ -16,13 +16,13 @@ router.get("/image", (req, res) => {
 });
 
 
-router.get("/image/:id", (req, res) => {
-  const image = Images.findById(req.params.id)
-    .then(image => {
-      if(image){
-        res.json(image);
+router.get("/word/:id", (req, res) => {
+  const word = Words.findById(req.params.id)
+    .then(word => {
+      if(word){
+        res.json(word);
       } else {
-        res.json({message: "imageID not found"})
+        res.json({message: "wordID not found"})
       }
     })
     .catch(err => {
